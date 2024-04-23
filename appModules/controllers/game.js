@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
-const { config } = require("../appModules/rating");
-const { getRandomGame } = require("../appModules/api");
+const { config } = require("../rating");
+const { getRandomGame } = require("../api");
 
 async function gameRouteController(res) {
   try {
@@ -13,5 +13,6 @@ async function gameRouteController(res) {
     res.statusCode = 500;
     res.end("Internal Server Error");
   }
+
 }
   module.exports = gameRouteController;

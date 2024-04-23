@@ -1,6 +1,5 @@
-const { getData} = require("./api-utils");
+const { getData, getRandomGame} = require("./api-utils");
 const endpoints = require("./config");
-const getRandomGame = require ("./api-utils");
 
 module.exports = {
     getData,

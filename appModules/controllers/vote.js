@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
-const parseBody = require("../appModules/http-utils/parse-body");
-const { config, createRating, updateRating } = require("../appModules/rating");
+const parseBody = require("../http-utils/parse-body");
+const { config, createRating, updateRating } = require("../rating");
 
 async function voteRouteController(req, res) {
   if (req.method !== "POST") {
@@ -11,6 +11,7 @@ async function voteRouteController(req, res) {
       res.statusCode = 200;
       const body = await parseBody(req);
       const data = JSON.parse(body);
+      console.log(data)
       const rating = createRating(data, config.WEIGHT);
 
       const ratingFile = await fs.readFile(config.PATH_TO_RATING_FILE);
